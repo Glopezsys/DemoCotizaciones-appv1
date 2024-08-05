@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+    <header>
+        <h1>Mi Aplicación de Cotizaciones</h1>
+        <% if (user) { %>
+            <form action="/auth/logout" method="POST">
+                <button type="submit">Logout</button>
+            </form>
+        <% } %>
+    </header>
+    <main>
+        <%- body %>
+    </main>
+</body>
+</html>

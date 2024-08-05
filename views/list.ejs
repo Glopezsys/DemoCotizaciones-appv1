@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Cotizaciones</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Enlaza con el archivo CSS -->
+</head>
+<body>
+    <h1>Lista de Cotizaciones</h1>
+    <a href="/cotizaciones/create" class="btn">Crear Nueva Cotización</a>
+    <form action="/auth/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+    <table class="cotizaciones-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Cliente</th>
+                <th>Descripción</th>
+                <th>Monto</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% cotizaciones.forEach(cotizacion => { %>
+                <tr>
+                    <td><%= cotizacion.id %></td>
+                    <td><%= cotizacion.cliente %></td>
+                    <td><%= cotizacion.descripcion %></td>
+                    <td><%= cotizacion.monto %></td>
+                    <td><%= cotizacion.fecha %></td>
+                    <td>
+                        <a href="/cotizaciones/update/<%= cotizacion.id %>" class="btn">Editar</a>
+                        <form action="/cotizaciones/delete/<%= cotizacion.id %>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/cotizaciones" class="btn">Volver</a>
+</body>
+</html>
+

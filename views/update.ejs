@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Cotización</title>
+</head>
+<body>
+    <h1>Update Cotización</h1>
+    <form action="/cotizaciones/update/<%= cotizacion.id %>" method="POST">
+        <label for="cliente">Cliente:</label>
+        <input type="text" name="cliente" id="cliente" value="<%= cotizacion.cliente %>" required><br>
+        <label for="descripcion">Descripción:</label>
+        <input type="text" name="descripcion" id="descripcion" value="<%= cotizacion.descripcion %>" required><br>
+        <label for="monto">Monto:</label>
+        <input type="number" name="monto" id="monto" step="0.01" value="<%= cotizacion.monto %>" required><br>
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" id="fecha" value="<%= cotizacion.fecha %>" required><br>
+        <button type="submit">Actualizar</button>
+    </form>
+    <a href="/cotizaciones">Volver</a>
+</body>
+</html>
